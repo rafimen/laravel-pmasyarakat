@@ -115,14 +115,7 @@ button:hover{
 				</form>
 			</div>
 
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="username" name="username" placeholder="username" required="">
-					<input type="password" name="password" placeholder="Password" required="">
-					<button>Login</button>
-				</form>
-			</div>
+		
 	</div>
 </body>
 </html>

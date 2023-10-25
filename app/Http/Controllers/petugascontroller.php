@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class petugascontroller extends Controller
@@ -16,7 +17,7 @@ class petugascontroller extends Controller
     }
 
     function proses_petugas(request $request){
-        $isi_id = $request->id_petugas;
+        $isi_id = $request->id;
         $isi_nama = $request->nama;
         $isi_username = $request->username;
         $isi_password = $request->password;
@@ -24,10 +25,10 @@ class petugascontroller extends Controller
         $isi_level = $request->level;
 
         DB::table('petugas')->insert([
-            'id_petugas' => $isi_id,
+            'id' => $isi_id,
             'nama_petugas' =>$isi_nama,
             'username' =>$isi_username,
-            'password' =>$isi_password,
+            'password' =>hash::make($isi_password),
             'telp' =>$isi_telp,
             'level' =>"petugas"
 

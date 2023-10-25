@@ -1,13 +1,3 @@
-<?php
-
-//PDO
-$koneksi = new PDO("mysql:host=localhost;dbname=pmasyarakat","root","");
-$query = $koneksi->query("select * from pengaduan");
-
-$data = $query->fetchAll();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +10,8 @@ $data = $query->fetchAll();
 @extends('layouts.app')
 @section('content')
 <br>
-<h1>{{$textjudul}}</h1>
+
+
 <br>
 
 <br>
@@ -40,14 +31,15 @@ $data = $query->fetchAll();
         
           </tr>
         </thead>
+  
         <tbody>
-          @foreach($pengaduan as $pengaduan)
+          @foreach($p as $p)
           <tr>
           <td>{{$pengaduan->id_pengaduan}}</td>
           <td>{{$pengaduan->tgl_pengaduan}}</td>
           <td>{{$pengaduan->nik}}</td>
           <td>{{$pengaduan->isi_laporan}}</td>
-          <td><img src="{{asset("storage/image/".$pengaduan->foto)}}" width="150px"/></td>
+          <td><img src="{{asset("storage/image/". $pengaduan->foto)}}" width="150px"/></td>
           <td>{{$pengaduan->status}}</td>
           <td>
             <a href="hapus/{{$pengaduan->id_pengaduan}}" class="btn btn-outline-danger">hapus</a>

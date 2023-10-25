@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\pengaduan;
 use Illuminate\Http\Request;
 
 class pengaduancontroller extends Controller
 {
     function index(){
-        $judul = "";
+    
       // $pengaduan = DB::table('pengaduan')->get();
-      $pengaduan = pengaduan::all();
-       return view('home',['textjudul' => $judul,'pengaduan' => $pengaduan]);
+       $p = pengaduan::all();
+       return view('home',['pengaduan' => $p]);
   
 
      
@@ -37,7 +38,7 @@ class pengaduancontroller extends Controller
 
         DB::table('pengaduan')->insert([
             'tgl_pengaduan' => date('y-m-d'),
-            'nik' => 33,
+            'nik' => Auth::user()->$nik,
             'isi_laporan' => $isi_pengaduan,
             'foto' => $request->foto->getclientoriginalName(),
             'status' => '0'

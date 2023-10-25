@@ -38,7 +38,7 @@ $data = $query->fetchAll();
         <tbody>
           @foreach($petugas as $petugas)
           <tr>
-          <td>{{$petugas->id_petugas}}</td>
+          <td>{{$petugas->id}}</td>
           <td>{{$petugas->nama_petugas}}</td>
           <td>{{$petugas->username}}</td>
           <td>{{$petugas->telp}}</td>
